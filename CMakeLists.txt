@@ -3,22 +3,19 @@ cmake_minimum_required(VERSION 3.18.0)
 
 include(cmake/udph.cmake)
 
-project(libudph VERSION "${GIT_VERSION}" LANGUAGES CXX)
+project(libudph_Math VERSION "${GIT_VERSION}" LANGUAGES CXX)
 
 include(udphInit)
 
-TARGET_CREATE_LIB(SomeLib INTERFACE)
-TARGET_APPEND_HDR(SomeLib "libudph/somelib/just.h")
+TARGET_CREATE_LIB(Math INTERFACE)
+TARGET_APPEND_HDR(
+	SomeLib
+	"libudph/Math/Tensor.h"
+	"libudph/Math/Math.h"
+)
 
-target_create_exe(SomeTarget)
-target_append_src(SomeTarget "libudph/SomeTarget.cpp")
+TARGET_LINK(Math)
 
-TARGET_APPEND_DEP(SomeTarget SomeLib)
-
-TARGET_LINK(SomeLib)
-target_link(SomeTarget)
-
-target_package(SomeLib)
-target_package(SomeTarget)
+TARGET_PACKAGE(Math)
 
 include(udphFinalize)
