@@ -7,9 +7,11 @@ project(libudph_Math VERSION "${GIT_VERSION}" LANGUAGES CXX)
 
 include(udphInit)
 
+PROJECT_SET_NAMESPACE(libudph_Math libudph)
+
 TARGET_CREATE_LIB(Math INTERFACE)
 TARGET_APPEND_HDR(
-	SomeLib
+	Math
 	"libudph/Math/Tensor.h"
 	"libudph/Math/Math.h"
 )
