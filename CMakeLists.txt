@@ -7,12 +7,16 @@ project_create(libudph_Math)
 
 PROJECT_SET_NAMESPACE(libudph_Math libudph)
 
+project_load_git_repository(libudph_Class "https://github.com/udPhish/libudph_Class.git" master)
+
 TARGET_CREATE_LIB(Math INTERFACE)
 TARGET_APPEND_HDR(
 	Math
 	"libudph/Math/Tensor.h"
 	"libudph/Math/Math.h"
 )
+
+TARGET_APPEND_DEP(Math libudph::Class)
 
 TARGET_LINK(Math)
 
