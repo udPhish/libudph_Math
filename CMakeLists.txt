@@ -8,6 +8,7 @@ project_create(libudph_Math)
 PROJECT_SET_NAMESPACE(libudph_Math libudph)
 
 project_load_git_repository(libudph_Class "https://github.com/udPhish/libudph_Class.git" master)
+project_load_git_repository(libudph_Container "https://github.com/udPhish/libudph_Container.git" master)
 
 TARGET_CREATE_LIB(Math INTERFACE)
 TARGET_APPEND_HDR(
@@ -15,11 +16,13 @@ TARGET_APPEND_HDR(
 	"libudph/Math/Tensor.h"
 	"libudph/Math/Math.h"
 )
-
 TARGET_APPEND_DEP(Math libudph::Class)
+TARGET_APPEND_DEP(Math libudph::Container)
 
 TARGET_LINK(Math)
 
 TARGET_PACKAGE(Math)
+
+get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
 
 FINALIZE()
