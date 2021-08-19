@@ -6,7 +6,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include <libudph/Math/Math.h>
+#include <libudph/Math/udMath.h>
 #include <libudph/Class/Traits.h>
 #include <libudph/Class/SFINAE.h>
 #include <libudph/Container/Container.h>
