@@ -14,7 +14,7 @@ TARGET_CREATE_LIB(Math INTERFACE)
 TARGET_APPEND_HDR(
 	Math
 	"libudph/Math/Tensor.h"
-	"libudph/Math/Math.h"
+	"libudph/Math/udMath.h"
 )
 TARGET_APPEND_DEP(Math libudph::Class)
 TARGET_APPEND_DEP(Math libudph::Container)
