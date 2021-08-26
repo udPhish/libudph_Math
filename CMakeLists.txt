@@ -10,7 +10,11 @@ PROJECT_SET_NAMESPACE(libudph_Math libudph)
 project_load_git_repository(libudph_Class "https://github.com/udPhish/libudph_Class.git" master)
 project_load_git_repository(libudph_Container "https://github.com/udPhish/libudph_Container.git" master)
 
-TARGET_CREATE_LIB(Math INTERFACE)
+TARGET_CREATE_LIB(Math STATIC)
+TARGET_APPEND_SRC(
+	Math
+	"libudph/Math/dummy.cpp"
+)
 TARGET_APPEND_HDR(
 	Math
 	"libudph/Math/Tensor.h"
