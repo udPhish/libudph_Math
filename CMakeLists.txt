@@ -25,6 +25,4 @@ TARGET_APPEND_DEP(Math libudph::Container)
 
 TARGET_LINK(Math)
 
-TARGET_PACKAGE(Math)
-
 FINALIZE()
