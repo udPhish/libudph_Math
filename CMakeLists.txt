@@ -21,9 +21,19 @@ TARGET_APPEND_HDR(
 	"libudph/Math/udMath.h"
 	"libudph/Math/World.h"
 )
-TARGET_APPEND_DEP(Math libudph::Class)
-TARGET_APPEND_DEP(Math libudph::Container)
+TARGET_APPEND_DEP_PUBLIC(Math libudph::Class)
+TARGET_APPEND_DEP_PUBLIC(Math libudph::Container)
 
 TARGET_LINK(Math)
+
+TARGET_CREATE_EXE(Test_Math)
+TARGET_SET_DIR(Test_Math "libudph/Test/Math")
+TARGET_APPEND_SRC(
+	Test_Math
+	"main.cpp"
+)
+TARGET_APPEND_DEP(Test_Math libudph::Math)
+
+TARGET_LINK(Test_Math)
 
 FINALIZE()
