@@ -1,15 +1,15 @@
 #pragma once
+#include <algorithm>
 #include <array>
 #include <cmath>
 #include <concepts>
 #include <functional>
 #include <iostream>
-#include <algorithm>
 
-#include <libudph/Math/udMath.h>
-#include <libudph/Class/Traits.h>
 #include <libudph/Class/SFINAE.h>
+#include <libudph/Class/Traits.h>
 #include <libudph/Container/Container.h>
+#include <libudph/Math/udMath.h>
 
 namespace UD
 {
@@ -177,7 +177,7 @@ concept Tensor = requires(T t)
   std::same_as<typename Traits::Traits<T>::Element,
                typename Traits::Traits<T>::Type> || requires()
   {
-    Tensor<typename Traits::Traits<T>::Element>;
+    //UD::Tensor::Concepts::Tensor<typename Traits::Traits<T>::Element>;
     std::same_as<
         typename Traits::Traits<typename Traits::Traits<T>::Element>::Type,
         typename Traits::Traits<T>::Type>;
