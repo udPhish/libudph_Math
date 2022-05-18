@@ -1315,7 +1315,7 @@ struct TensorRaw
   {
     return UD::Math::zip_transform(
         *this,
-        std::forward<TensorRaw>(rhs),
+        std::forward<U>(rhs),
         [](auto& a, auto&& b)
         {
           return a += std::forward<std::remove_reference_t<decltype(b)>>(b);
@@ -1340,7 +1340,7 @@ struct TensorRaw
   friend TensorRaw operator+(TensorRaw lhs, V&& rhs)
   {
     return UD::Math::zip_transform(lhs,
-                                   std::forward<TensorRaw>(rhs),
+                                   std::forward<V>(rhs),
                                    [](auto&& a, auto&& b)
                                    {
                                      return std::forward<decltype(a)>(a)
@@ -1367,7 +1367,7 @@ struct TensorRaw
   TensorRaw& operator-=(U&& rhs)
   {
     return UD::Math::zip_transform(*this,
-                                   std::forward<TensorRaw>(rhs),
+                                   std::forward<U>(rhs),
                                    [](auto&& a, auto&& b)
                                    {
                                      return std::forward<decltype(a)>(a)
@@ -1393,7 +1393,7 @@ struct TensorRaw
   friend TensorRaw operator-(TensorRaw lhs, V&& rhs)
   {
     return UD::Math::zip_transform(lhs,
-                                   std::forward<TensorRaw>(rhs),
+                                   std::forward<V>(rhs),
                                    [](auto&& a, auto&& b)
                                    {
                                      return std::forward<decltype(a)>(a)
@@ -1420,7 +1420,7 @@ struct TensorRaw
   TensorRaw& operator*=(U&& rhs)
   {
     return UD::Math::zip_transform(*this,
-                                   std::forward<TensorRaw>(rhs),
+                                   std::forward<U>(rhs),
                                    [](auto&& a, auto&& b)
                                    {
                                      return std::forward<decltype(a)>(a)
@@ -1446,7 +1446,7 @@ struct TensorRaw
   friend TensorRaw operator*(TensorRaw lhs, V&& rhs)
   {
     return UD::Math::zip_transform(lhs,
-                                   std::forward<TensorRaw>(rhs),
+                                   std::forward<V>(rhs),
                                    [](auto&& a, auto&& b)
                                    {
                                      return std::forward<decltype(a)>(a)
@@ -1473,7 +1473,7 @@ struct TensorRaw
   TensorRaw& operator/=(U&& rhs)
   {
     return UD::Math::zip_transform(*this,
-                                   std::forward<TensorRaw>(rhs),
+                                   std::forward<U>(rhs),
                                    [](auto&& a, auto&& b)
                                    {
                                      return std::forward<decltype(a)>(a)
@@ -1499,7 +1499,7 @@ struct TensorRaw
   friend TensorRaw operator/(TensorRaw lhs, V&& rhs)
   {
     return UD::Math::zip_transform(lhs,
-                                   std::forward<TensorRaw>(rhs),
+                                   std::forward<V>(rhs),
                                    [](auto&& a, auto&& b)
                                    {
                                      return std::forward<decltype(a)>(a)
