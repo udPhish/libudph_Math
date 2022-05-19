@@ -676,6 +676,10 @@ struct OfSizeHelper<T, S> : public std::true_type
 {
 };
 }  // namespace detail
+template<class T, auto S>
+concept RangeOfSize
+    = Range<T> && std::is_convertible<decltype(S), Math::Type::ULong> && detail::
+          OfSizeHelper<T, S>::value;
 template<class T, auto S, auto... Ss>
 concept OfSize
     = Tensor<T> && Traits::Tensor::Rank<T>::value >= sizeof...(Ss) + 1
