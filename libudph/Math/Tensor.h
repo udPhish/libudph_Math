@@ -179,7 +179,12 @@ template<class T>
 concept CompoundArithmeticableRange = ArithmeticableRange<
     T> && ArithmeticableRange<std::ranges::range_value_t<T>>;
 template<class T>
-concept Tensor = Arithmeticable<T> && ArithmeticableRange<T>;
+concept IndexableRange = Range<T> && requires(T t, UD::Math::Type::ULong i) {
+    {t[i]};
+    {t.at(i)};
+};
+template<class T>
+concept Tensor = Arithmeticable<T> && ArithmeticableRange<T> && IndexableRange<T>;
 template<class T>
 concept NotTensor = !Tensor<T>;
 template<class T>
